@@ -2,7 +2,9 @@
 
 A 1602 LCD module controller for the Raspberry Pi, written in Python.
 
-## Hardware
+## Hardware setup
+
+Check out [`schematics/schematics.pdf`](schematics/schematics.pdf); it contains step-by-step schematics that might be useful when following this guide.
 
 The LCD module has 16 pins; from left to right they are:
 
@@ -29,17 +31,11 @@ Pin | Signal        | Type    | Description
 
 First, connect `VSS` (pin 1) to ground (0V) and `VDD` (pin 2) to a +5V power supply.
 
-![Image: `schematics/1-logic-power.png`](schematics/1-logic-power.png)
-
 The LCD power supply voltage can be varied to adjust the contrast. A potentiometer can be used to allow adjusting this, but here we will just make a simple voltage divider out of two resistors.
 
 Grab two resistors of the same value (anything between about 10 kΩ and 100 kΩ will do). Connect one between the +5V supply and `V0` (pin 3), and the other between `V0` and ground. This gives `V0` a voltage of 2.5V, which is good enough for now. You can always swap the resistors for different values to change the voltage of `V0`.
 
-![Image: `schematics/2-lcd-power.png`](schematics/2-lcd-power.png)
-
 Lastly, connect up the backlight power by wiring `LED-` (pin 16) to ground and adding a 220 Ω resistor between `LED+` (pin 15) and the +5V supply.
-
-![Image: `schematics/3-backlight-power.png`](schematics/3-backlight-power.png)
 
 ### Wiring up the control signals
 
@@ -54,8 +50,6 @@ LCD signal   | Raspberry Pi signal
 `RS` (pin 4) | GPIO pin 4
 `E` (pin 6)  | GPIO pin 27
 
-![Image: `schematics/4-control-signals.png`](schematics/4-control-signals.png)
-
 ### Wiring up the data signals
 
 The LCD provides both 8-bit and 4-bit modes. We will use the 4-bit mode, so only pins `DB4`, `DB5`, `DB6`, `DB7` are actually used for communication. Pins `DB0`, `DB1`, `DB2` and `DB3` are left disconnected.
@@ -66,8 +60,6 @@ LCD signal     | Raspberry Pi signal
 `DB5` (pin 12) | GPIO pin 23
 `DB6` (pin 13) | GPIO pin 24
 `DB7` (pin 14) | GPIO pin 25
-
-![Image: `schematics/5-data-signals.png`](schematics/5-data-signals.png)
 
 ## Software
 
