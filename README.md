@@ -6,24 +6,24 @@ A 1602 LCD module controller for the Raspberry Pi, written in Python.
 
 The LCD module has 16 pins; from left to right they are:
 
-Pin  Signal         Type     Description
----  -------------  -------  -----------
-1    `VSS`          Power    Ground
-2    `VDD`          Power    Logic power supply
-3    `V0`           Power    LCD power supply
-4    `RS`           Control  Register select (low = instruction, high = data)
-5    `RW`           Control  Read/write select (low = write, high = read)
-6    `E`            Control  Enable
-7    `DB0`          Data     Data bus (bit 0)
-8    `DB1`          Data     Data bus (bit 1)
-9    `DB2`          Data     Data bus (bit 2)
-10   `DB3`          Data     Data bus (bit 3)
-11   `DB4`          Data     Data bus (bit 4)
-12   `DB5`          Data     Data bus (bit 5)
-13   `DB6`          Data     Data bus (bit 6)
-14   `DB7`          Data     Data bus (bit 7)
-15   `LED+` or `A`  Power    Backlight power supply
-16   `LED-` or `K`  Power    Backlight ground
+Pin | Signal        | Type    | Description
+--- | ------------- | ------- | -----------
+1   | `VSS`         | Power   | Ground
+2   | `VDD`         | Power   | Logic power supply
+3   | `V0`          | Power   | LCD power supply
+4   | `RS`          | Control | Register select (low = instruction, high = data)
+5   | `RW`          | Control | Read/write select (low = write, high = read)
+6   | `E`           | Control | Enable
+7   | `DB0`         | Data    | Data bus (bit 0)
+8   | `DB1`         | Data    | Data bus (bit 1)
+9   | `DB2`         | Data    | Data bus (bit 2)
+10  | `DB3`         | Data    | Data bus (bit 3)
+11  | `DB4`         | Data    | Data bus (bit 4)
+12  | `DB5`         | Data    | Data bus (bit 5)
+13  | `DB6`         | Data    | Data bus (bit 6)
+14  | `DB7`         | Data    | Data bus (bit 7)
+15  | `LED+` or `A` | Power   | Backlight power supply
+16  | `LED-` or `K` | Power   | Backlight ground
 
 ### Wiring up the power supply
 
@@ -43,21 +43,21 @@ The other two control signals, `RS` and `E`, will need to be connected to the GP
 
 Control pin mapping:
 
-LCD signal    Raspberry Pi signal
-------------  -------------------
-`RS` (pin 4)  GPIO pin 4
-`E` (pin 6)   GPIO pin 27
+LCD signal   | Raspberry Pi signal
+------------ | -------------------
+`RS` (pin 4) | GPIO pin 4
+`E` (pin 6)  | GPIO pin 27
 
 ### Wiring up the data signals
 
 The LCD provides both 8-bit and 4-bit modes. We will use the 4-bit mode, so only pins `DB4`, `DB5`, `DB6`, `DB7` are actually used for communication. Pins `DB0`, `DB1`, `DB2` and `DB3` are left disconnected.
 
-LCD signal      Raspberry Pi signal
---------------  -------------------
-`DB4` (pin 11)  GPIO pin 22
-`DB5` (pin 12)  GPIO pin 23
-`DB6` (pin 13)  GPIO pin 24
-`DB7` (pin 14)  GPIO pin 25
+LCD signal     | Raspberry Pi signal
+-------------- | -------------------
+`DB4` (pin 11) | GPIO pin 22
+`DB5` (pin 12) | GPIO pin 23
+`DB6` (pin 13) | GPIO pin 24
+`DB7` (pin 14) | GPIO pin 25
 
 
 ## Software
