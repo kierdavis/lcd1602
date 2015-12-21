@@ -1,4 +1,8 @@
-# Hardware
+# `lcd1602`
+
+A 1602 LCD module controller for the Raspberry Pi, written in Python.
+
+## Hardware
 
 The LCD module has 16 pins; from left to right they are:
 
@@ -21,7 +25,7 @@ Pin  Signal         Type     Description
 15   `LED+` or `A`  Power    Backlight power supply
 16   `LED-` or `K`  Power    Backlight ground
 
-## Wiring up the power supply
+### Wiring up the power supply
 
 First, connect `VSS` (pin 1) to ground (0V) and `VDD` (pin 2) to a +5V power supply.
 
@@ -31,7 +35,7 @@ Grab two resistors of the same value (anything between about 10 kΩ and 100 kΩ 
 
 Lastly, connect up the backlight power by wiring `LED-` (pin 16) to ground and adding a 220 Ω resistor between `LED+` (pin 15) and the +5V supply.
 
-## Wiring up the control signals
+### Wiring up the control signals
 
 It is unusual to need to read data from the LCD. Mostly you'll just want to write data (text to display, cursor position etc.) to it, so we'll just wire the read/write select pin `RW` to ground, indicating that it will always be in write mode.
 
@@ -44,7 +48,7 @@ LCD signal    Raspberry Pi signal
 `RS` (pin 4)  GPIO pin 4
 `E` (pin 6)   GPIO pin 27
 
-## Wiring up the data signals
+### Wiring up the data signals
 
 The LCD provides both 8-bit and 4-bit modes. We will use the 4-bit mode, so only pins `DB4`, `DB5`, `DB6`, `DB7` are actually used for communication. Pins `DB0`, `DB1`, `DB2` and `DB3` are left disconnected.
 
@@ -56,7 +60,7 @@ LCD signal      Raspberry Pi signal
 `DB7` (pin 14)  GPIO pin 25
 
 
-# Software
+## Software
 
 `lcd1602.py` contains a class that can be used for controlling the LCD display.
 
