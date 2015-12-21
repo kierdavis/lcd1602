@@ -66,33 +66,35 @@ LCD signal     | Raspberry Pi signal
 
 Example usage:
 
-    # Create LCD controller, specifying the pin numbers.
-    # This also initialises the controller and clears the screen.
-    lcd = lcd1602.LCD(4, 27, 22, 23, 24, 25)
-    
-    # Write some text.
-    lcd.write("Hello, world!")
-    
-    # Clear the screen.
-    lcd.clear()
-    
-    # Move the cursor to the top left.
-    lcd.home()
-    
-    # Set cursor coordinates to second line, fourth character.
-    lcd.set_cursor(1, 3)
-    
-    # Move cursor one character to the right.
-    lcd.move_cursor(lcd1602.RIGHT)
-    
-    # Shift display one character to the left.
-    lcd.shift_display(lcd1602.LEFT)
-    
-    # Change settings. See the docstrings for the set_entry_mode and
-    # set_display_mode methods for information on what the parameters mean.
-    lcd.set_entry_mode(direction    = lcd1602.RIGHT,
-                       shift_enable = False)
-    
-    lcd.set_display_mode(display_on     = True,
-                         cursor_visible = False,
-                         cursor_blink   = False)
+```python
+# Create LCD controller, specifying the pin numbers.
+# This also initialises the controller and clears the screen.
+lcd = lcd1602.LCD(4, 27, 22, 23, 24, 25)
+
+# Write some text.
+lcd.write("Hello, world!")
+
+# Clear the screen.
+lcd.clear()
+
+# Move the cursor to the top left.
+lcd.home()
+
+# Set cursor coordinates to second line, fourth character.
+lcd.set_cursor(1, 3)
+
+# Move cursor one character to the right.
+lcd.move_cursor(lcd1602.RIGHT)
+
+# Shift display one character to the left.
+lcd.shift_display(lcd1602.LEFT)
+
+# Change settings. See the docstrings for the set_entry_mode and
+# set_display_mode methods for information on what the parameters mean.
+lcd.set_entry_mode(direction    = lcd1602.RIGHT,
+                   shift_enable = False)
+
+lcd.set_display_mode(display_on     = True,
+                     cursor_visible = False,
+                     cursor_blink   = False)
+```
