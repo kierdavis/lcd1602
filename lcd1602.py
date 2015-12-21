@@ -218,7 +218,7 @@ class LCD(object):
         0-indexed.
         """
         
-        if line < 0 or line > 1::
+        if line < 0 or line > 1:
             raise ValueError("'line' out of range (0 to 1)")
         if column < 0x00 or column > 0x39:
             raise ValueError("'column' out of range (0 to 39)")
@@ -291,7 +291,7 @@ class LCD(object):
         GPIO.output(self.db4_pin, bool(value & 0x1))
         GPIO.output(self.db5_pin, bool(value & 0x2))
         GPIO.output(self.db6_pin, bool(value & 0x4))
-        GPIO.output(self.db7_pin, bool(value & 0x8)
+        GPIO.output(self.db7_pin, bool(value & 0x8))
         
         # Pulse enable pin
         GPIO.output(self.e_pin, True)
